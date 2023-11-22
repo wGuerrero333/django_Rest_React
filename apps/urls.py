@@ -1,7 +1,9 @@
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
 from apps import views
-# se crean las rutas
+# se crean las rutas de la app ejemplo la ultima parte de esta ruta " r'tasks' "
+#  http://127.0.0.1:8000/tasks/api/v1/tasks/
 router = routers.DefaultRouter()
 router.register(r'tasks', views.TaskView)
 #Genera get put ...
@@ -10,6 +12,7 @@ router.register(r'tasks', views.TaskView)
 # 2.Que es lo que se va a ejecutar osea url generada por django (routers) 
 
 urlpatterns = [
-    path("api/v1/", include(router.urls) )
+    path("api/v1/", include(router.urls) ),
+    path("documentacion/", include_docs_urls(title="Documentacion de la API"))
 ]
 
