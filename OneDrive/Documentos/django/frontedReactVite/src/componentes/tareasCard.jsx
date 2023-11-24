@@ -1,13 +1,12 @@
 
 
-export function tareasCard() {
+export function TareasCard( {itarea})  {
   return (
-    <div>
-    <div>tareasCard</div>
-
-    
-
-    </div>
+    <div> 
+    <h2> {itarea.title}</h2>
+    <h4> {itarea.objetivo}</h4>
+   <hr />
+   </div>
     
   )
 }

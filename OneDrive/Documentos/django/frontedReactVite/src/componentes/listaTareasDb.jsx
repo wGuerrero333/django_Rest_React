@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getAllTask } from "../api/getAllTask"
+import { TareasCard } from "./tareasCard"
 // tareas inicia como un []
 // luego es actulizado constantemente (useEffect)  por setTareas
 export function ListaTareasDb() {
@@ -11,17 +12,14 @@ export function ListaTareasDb() {
             setTareas(res.data);
         }
         loadTasks()
-    })
+    },[])
     // como se hace un recorrido si usa el mismo key que trae
     return (
         <div> <h1>ListaTareasDb </h1>   
             {
-                tareas.map( i => (
+                tareas.map( itarea => (
+                    <TareasCard itarea={itarea} key={itarea.id}/>
                     
-                    <div key={i.id}> 
-                    <h2> {i.title}</h2>
-                    <h4> {i.objetivo}</h4>
-                   </div>
                                     
 
                 ))
