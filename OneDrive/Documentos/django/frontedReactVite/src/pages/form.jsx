@@ -1,16 +1,29 @@
 import {useForm} from 'react-hook-form'
-// useForm sirve par registrar los campos de los forms
+
+// useForm sirve par registrar y guardar los campos de los forms
+// cuando el form haga el submit va a guardar los data con handlesubmit
 export function Formulario() {
-  const {registrar} = useForm()
+  const {register, handleSubmit, formState:{errors}} = useForm()
+  const onSubmit = (data) =>
+  alert(JSON.stringify(data));
+
   return (
-    <div>
-      <form action="">
-        <input placeholder="Ingrese Title" />
-        <textarea rows={3} placeholder="descripcion" > </textarea>
+
+      <form onSubmit={handleSubmit(onSubmit)} >
+        <input placeholder="Ingrese Title" 
+         {...register("title",{required:true})} 
+         />
+         {errors.title && <span>Title requerido</span> }
+        <textarea rows={3} placeholder="descripcion" 
+         {...register("descripcion",{required:true})} 
+        
+        > </textarea>
+         {errors.descripcion && <span>Descripcion requerido</span> }
+
         <button>Save</button>
       </form>
 
-    </div>
+    
   )
 }
 
