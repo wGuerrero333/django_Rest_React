@@ -131,5 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
-# autorizacion de poder conectar dos puertos backend y fronted
-CORS_ALLOWED_ORIGINS = []
+# autorizacion de poder conectar dos puertos backend http://localhost:8000/y fronted http://localhost:5173/
+CORS_ORIGIN_WHITELIST = ['http://localhost:5173']
