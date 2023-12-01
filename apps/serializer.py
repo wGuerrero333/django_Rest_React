@@ -1,4 +1,5 @@
 from rest_framework import serializers
+# como proveer los datos del MODELO para poder serializar ?
 # se importa la calse Tarea del archivo models dado que esos campos on los que se vana aserializar
 from .models import task
 
